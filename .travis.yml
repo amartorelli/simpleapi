@@ -13,7 +13,7 @@ script:
   - make test
 
 after_success:
-  - make build
+  - make build-linux
   - docker build -t sysfiller/simpleapi:$TRAVIS_BUILD_NUMBER .
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker push sysfiller/simpleapi:$TRAVIS_BUILD_NUMBER
