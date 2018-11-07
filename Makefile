@@ -10,7 +10,7 @@ CMD_PATH=./$(BINARY_NAME)
 build:
 	$(GOBUILD) -o $(BINARY_NAME)
 build-linux:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME) $(CMD_PATH)
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME)
 test:
 	$(GOTEST) -v ./...
 clean:
