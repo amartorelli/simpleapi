@@ -1,2 +1,2 @@
 # simpleapi
-Extremely minimal API server in Go
+Extremely minimal API server in Go with two endpoints
