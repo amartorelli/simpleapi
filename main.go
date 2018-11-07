@@ -57,6 +57,7 @@ func main() {
 	http.Handle("/upper", uppercaseHandler)
 	http.Handle("/count", countHandler)
 	http.Handle("/metrics", promhttp.Handler())
+	http.HandleFunc("/healthz", healthzHandler)
 
 	http.ListenAndServe(":8080", nil)
 }
@@ -79,4 +80,8 @@ func decodeCountRequest(_ context.Context, r *http.Request) (interface{}, error)
 
 func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {
 	return json.NewEncoder(w).Encode(response)
+}
+
+func healthzHandler(w http.ResponseWriter, req *http.Request) {
+	w.Write([]byte("Healthy!"))
 }
