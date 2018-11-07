@@ -83,6 +83,5 @@ func encodeResponse(_ context.Context, w http.ResponseWriter, response interface
 }
 
 func healthzHandler(w http.ResponseWriter, req *http.Request) {
-	w.WriteHeader(http.StatusInternalServerError)
-	w.Write([]byte("Unhealthy!"))
+	w.Write([]byte("Healthy!"))
 }
